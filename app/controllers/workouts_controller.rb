@@ -4,7 +4,7 @@ class WorkoutsController < ApplicationController
   # GET /workouts
   # GET /workouts.json
   def index
-    @workouts = Workout.all
+    @workouts = current_user.workouts
   end
 
   # GET /workouts/1
@@ -15,6 +15,7 @@ class WorkoutsController < ApplicationController
   # GET /workouts/new
   def new
     @workout = Workout.new
+    @workout.user = current_user
   end
 
   # GET /workouts/1/edit
@@ -25,6 +26,7 @@ class WorkoutsController < ApplicationController
   # POST /workouts.json
   def create
     @workout = Workout.new(workout_params)
+    @workout.user = current_user
 
     respond_to do |format|
       if @workout.save
