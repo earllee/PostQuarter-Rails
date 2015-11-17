@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Workout Sets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>When</th>
+      <th>Rest</th>
+      <th>Workout</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @workout_sets.each do |workout_set| %>
+      <tr>
+        <td><%= workout_set.when %></td>
+        <td><%= workout_set.rest %></td>
+        <td><%= workout_set.workout %></td>
+        <td><%= link_to 'Show', workout_set %></td>
+        <td><%= link_to 'Edit', edit_workout_set_path(workout_set) %></td>
+        <td><%= link_to 'Destroy', workout_set, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Workout set', new_workout_set_path %>

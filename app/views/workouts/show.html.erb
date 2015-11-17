@@ -1,4 +1,22 @@
 <p id="notice"><%= notice %></p>
 
+<h1> <%= @workout.workout_sets.count %> Sets </h1>
+<% @workout.workout_sets.each do |ws| %>
+  <p>
+    <strong>Exercise:</strong>
+    <%= ws.exercise %>
+  </p>
+
+  <p>
+    <strong>Reps:</strong>
+    <%= ws.reps %>
+  </p>
+
+  <p>
+    <strong>Rest:</strong>
+    <%= ws.rest %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_workout_path(@workout) %> |
 <%= link_to 'Back', workouts_path %>

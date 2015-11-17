@@ -11,8 +11,15 @@
     </div>
   <% end %>
 
-  When: <%= f.datetime_select :when %>
-  Notes: <%= f.text_field :notes %> 
+  <div class="field">
+    <%= f.label :when %>
+    <%= f.datetime_select :when %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_field :notes %> 
+  </div>
 
   <div class="actions">
     <%= f.submit %>
